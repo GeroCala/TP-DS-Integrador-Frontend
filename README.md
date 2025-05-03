@@ -19,4 +19,4 @@ Este trabajo se va a tratar sobre el sistema de pasantias de SAU, el objetivo qu
 [Link BPMN](https://modeler.camunda.io/share/7a165934-6238-46ec-8205-ee8c7b475d2a)
 
 ### Pagina web
-[Link Pagina Web](tppasantiassau.netlify.app)
+[Link Pagina Web](https://tppasantiassau.netlify.app)
