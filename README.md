@@ -14,3 +14,9 @@ Este trabajo se va a tratar sobre el sistema de pasantias de SAU, el objetivo qu
 2.	El sistema debe avisar a SAU antes de las 24hs desde el envió del formulario
 3.	El sistema debe ser fácil de usar.
 4.	El sistema debe ser fácil de modificar.
+
+### BPMN
+[Link BPMN](https://modeler.camunda.io/share/7a165934-6238-46ec-8205-ee8c7b475d2a)
+
+### Pagina web
+[Link Pagina Web](tppasantiassau.netlify.app)
