@@ -4,9 +4,10 @@ import './LoginPage.css';
 
 function EmpresaPage() {
   const [credentials, setCredentials] = useState({
-    username: '',
-    password: ''
+    nombre: '',
+    cuit: ''
   });
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -17,35 +18,70 @@ function EmpresaPage() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Credenciales:', credentials);
+    setError('');
+    
+    try {
+      const response = await fetch('http://localhost:3000/empresas');
+      const empresas = await response.json();
+      
+      // Log para depuración
+      console.log('Datos ingresados:', credentials);
+      console.log('Empresas de la base de datos:', empresas);
+      
+      const empresa = empresas.find(e => {
+        // Log para cada comparación
+        console.log('Comparando con:', e);
+        console.log('Coincide nombre:', e.nombre === credentials.nombre);
+        console.log('Coincide CUIT:', e.cuit === credentials.cuit);
+        
+        return e.nombre.toLowerCase() === credentials.nombre.toLowerCase() && 
+               e.cuit.replace(/[-\s]/g, '') === credentials.cuit.replace(/[-\s]/g, '');
+      });
+      
+      if (empresa) {
+        console.log('Empresa encontrada:', empresa);
+        sessionStorage.setItem('empresaId', empresa.id);
+        sessionStorage.setItem('empresaNombre', empresa.nombre);
+        sessionStorage.setItem('empresaCuit', empresa.cuit);
+        navigate('/empresa-dashboard');
+      } else {
+        console.log('No se encontró la empresa');
+        setError('Nombre de empresa o CUIT incorrectos');
+      }
+    } catch (error) {
+      console.error('Error en la autenticación:', error);
+      setError('Error al conectar con el servidor');
+    }
   };
 
   return (
     <div className="login-container">
       <div className="login-box">
         <h2>Acceso Empresas</h2>
+        {error && <div className="error-message">{error}</div>}
         <form onSubmit={handleSubmit} className="login-form">
           <div className="form-group">
-            <label htmlFor="username">Usuario</label>
+            <label htmlFor="nombre">Nombre de la Empresa</label>
             <input
               type="text"
-              id="username"
-              name="username"
-              value={credentials.username}
+              id="nombre"
+              name="nombre"
+              value={credentials.nombre}
               onChange={handleChange}
               required
             />
           </div>
           <div className="form-group">
-            <label htmlFor="password">Contraseña</label>
+            <label htmlFor="cuit">CUIT</label>
             <input
-              type="password"
-              id="password"
-              name="password"
-              value={credentials.password}
+              type="text"
+              id="cuit"
+              name="cuit"
+              value={credentials.cuit}
               onChange={handleChange}
+              placeholder="XX-XXXXXXXX-X"
               required
             />
           </div>

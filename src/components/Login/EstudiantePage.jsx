@@ -4,9 +4,10 @@ import './LoginPage.css';
 
 function EstudiantePage() {
   const [credentials, setCredentials] = useState({
-    username: '',
-    password: ''
+    legajo: '',
+    dni: ''
   });
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -17,34 +18,56 @@ function EstudiantePage() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Credenciales:', credentials);
+    setError('');
+    
+    try {
+      const response = await fetch('http://localhost:3000/alumnos');
+      const alumnos = await response.json();
+      
+      const alumno = alumnos.find(
+        a => a.legajo === credentials.legajo && a.dni === credentials.dni
+      );
+      
+      if (alumno) {
+        // Guardar información del alumno en sessionStorage
+        sessionStorage.setItem('alumnoId', alumno.id);
+        sessionStorage.setItem('alumnoLegajo', alumno.legajo);
+        sessionStorage.setItem('alumnoNombre', alumno.nombre);
+        navigate('/estudiante-dashboard');
+      } else {
+        setError('Legajo o DNI incorrectos');
+      }
+    } catch (error) {
+      setError('Error al conectar con el servidor');
+    }
   };
 
   return (
     <div className="login-container">
       <div className="login-box">
         <h2>Acceso Estudiantes</h2>
+        {error && <div className="error-message">{error}</div>}
         <form onSubmit={handleSubmit} className="login-form">
           <div className="form-group">
-            <label htmlFor="username">Usuario</label>
+            <label htmlFor="legajo">Legajo</label>
             <input
               type="text"
-              id="username"
-              name="username"
-              value={credentials.username}
+              id="legajo"
+              name="legajo"
+              value={credentials.legajo}
               onChange={handleChange}
               required
             />
           </div>
           <div className="form-group">
-            <label htmlFor="password">Contraseña</label>
+            <label htmlFor="dni">DNI</label>
             <input
               type="password"
-              id="password"
-              name="password"
-              value={credentials.password}
+              id="dni"
+              name="dni"
+              value={credentials.dni}
               onChange={handleChange}
               required
             />
