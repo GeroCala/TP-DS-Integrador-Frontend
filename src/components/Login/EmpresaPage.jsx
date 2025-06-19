@@ -26,32 +26,21 @@ function EmpresaPage() {
       const response = await fetch('http://localhost:3000/empresas');
       const empresas = await response.json();
       
-      // Log para depuración
-      console.log('Datos ingresados:', credentials);
-      console.log('Empresas de la base de datos:', empresas);
-      
-      const empresa = empresas.find(e => {
-        // Log para cada comparación
-        console.log('Comparando con:', e);
-        console.log('Coincide nombre:', e.nombre === credentials.nombre);
-        console.log('Coincide CUIT:', e.cuit === credentials.cuit);
-        
-        return e.nombre.toLowerCase() === credentials.nombre.toLowerCase() && 
-               e.cuit.replace(/[-\s]/g, '') === credentials.cuit.replace(/[-\s]/g, '');
-      });
+      const empresa = empresas.find(
+        e => e.nombre === credentials.nombre && e.cuit === credentials.cuit
+      );
       
       if (empresa) {
         console.log('Empresa encontrada:', empresa);
         sessionStorage.setItem('empresaId', empresa.id);
         sessionStorage.setItem('empresaNombre', empresa.nombre);
         sessionStorage.setItem('empresaCuit', empresa.cuit);
-        navigate('/empresa-dashboard');
+        navigate('/empresa/pasantias');
       } else {
         console.log('No se encontró la empresa');
         setError('Nombre de empresa o CUIT incorrectos');
       }
     } catch (error) {
-      console.error('Error en la autenticación:', error);
       setError('Error al conectar con el servidor');
     }
   };
