@@ -31,11 +31,15 @@ function EstudiantePage() {
       );
       
       if (alumno) {
-        // Guardar información del alumno en sessionStorage
+        // Guardar toda la información del alumno en sessionStorage
         sessionStorage.setItem('alumnoId', alumno.id);
         sessionStorage.setItem('alumnoLegajo', alumno.legajo);
         sessionStorage.setItem('alumnoNombre', alumno.nombre);
-        navigate('/estudiante-dashboard');
+        sessionStorage.setItem('alumnoApellido', alumno.apellido);
+        sessionStorage.setItem('alumnoDni', alumno.dni);
+        sessionStorage.setItem('alumnoCarrera', alumno.carrera);
+        sessionStorage.setItem('alumnoEmail', alumno.email);
+        navigate('/estudiante/pasantias');
       } else {
         setError('Legajo o DNI incorrectos');
       }

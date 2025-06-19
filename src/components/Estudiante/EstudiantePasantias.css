@@ -1,0 +1,130 @@
+.pasantias-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.estudiante-info {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.estudiante-info p {
+  margin: 5px 0;
+  color: #333;
+}
+
+.empresas-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.empresa-section {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.empresa-titulo {
+  color: #1565c0;
+  margin: 0 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e3f2fd;
+}
+
+.pasantias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.pasantia-card {
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pasantia-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pasantia-card h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 1.3em;
+}
+
+.empresa-nombre {
+  color: #1565c0;
+  font-size: 1em;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.descripcion {
+  color: #444;
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.pasantia-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.duracion, .estado {
+  font-size: 0.95em;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.duracion {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.estado {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.loading-message {
+  text-align: center;
+  color: #666;
+  padding: 20px;
+}
+
+.error-message {
+  background: #ffebee;
+  color: #c62828;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.no-pasantias {
+  text-align: center;
+  color: #666;
+  grid-column: 1 / -1;
+  padding: 40px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}

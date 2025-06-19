@@ -6,6 +6,7 @@ import InscripcionesPage from './components/InscripcionesPage';
 import EstudiantePage from './components/Login/EstudiantePage';
 import EmpresaPage from './components/Login/EmpresaPage';
 import PasantiasPage from './components/Empresa/PasantiasPage';
+import EstudiantePasantias from './components/Estudiante/EstudiantePasantias';
 import './App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/estudiante" element={<EstudiantePage />} />
           <Route path="/trabajo" element={<EmpresaPage />} />
           <Route path="/empresa/pasantias" element={<PasantiasPage />} />
+          <Route path="/estudiante/pasantias" element={<EstudiantePasantias />} />
         </Routes>
       </div>
     </Router>
