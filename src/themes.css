@@ -1,0 +1,145 @@
+/* Variables CSS para temas */
+:root {
+  --primary-color: #0056b3;
+  --primary-hover: #003d82;
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --header-bg: #0056b3;
+  --header-text: #ffffff;
+  --border-color: #cccccc;
+  --button-bg: #0056b3;
+  --button-text: #ffffff;
+  --button-hover: #003d82;
+  --input-bg: #ffffff;
+  --input-border: #cccccc;
+  --error-color: #ff6b6b;
+  --error-bg: rgba(255, 107, 107, 0.1);
+}
+
+/* Tema claro (por defecto) */
+.light-theme {
+  --primary-color: #0056b3;
+  --primary-hover: #003d82;
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --header-bg: #0056b3;
+  --header-text: #ffffff;
+  --border-color: #cccccc;
+  --button-bg: #0056b3;
+  --button-text: #ffffff;
+  --button-hover: #003d82;
+  --input-bg: #ffffff;
+  --input-border: #cccccc;
+  --error-color: #ff6b6b;
+  --error-bg: rgba(255, 107, 107, 0.1);
+}
+
+/* Tema oscuro */
+.dark-theme {
+  --primary-color: #4a90e2;
+  --primary-hover: #357abd;
+  --background-color: #1a1a1a;
+  --text-color: #ffffff;
+  --header-bg: #2c2c2c;
+  --header-text: #ffffff;
+  --border-color: #444444;
+  --button-bg: #4a90e2;
+  --button-text: #ffffff;
+  --button-hover: #357abd;
+  --input-bg: #2c2c2c;
+  --input-border: #555555;
+  --error-color: #ff6b6b;
+  --error-bg: rgba(255, 107, 107, 0.2);
+}
+
+/* Aplicar variables CSS a los elementos existentes */
+.app-container {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.header {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+}
+
+.nav-button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border-color: var(--button-text);
+}
+
+.nav-button:hover {
+  background-color: var(--button-hover);
+}
+
+.search-bar {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border-color: var(--input-border);
+}
+
+.info-button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+
+.inscription-button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+
+.registration-button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+
+.registration-button:hover {
+  background-color: var(--button-hover);
+}
+
+/* Estilos específicos para páginas de login */
+.light-theme .login-container {
+  background-color: #f5f5f5;
+}
+
+.dark-theme .login-container {
+  background-color: #121212;
+}
+
+.light-theme .login-box {
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .login-box {
+  background-color: #2c2c2c;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para el botón de cambio de tema */
+.theme-toggle-button {
+  background: none;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-left: 20px;
+}
+
+.theme-toggle-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+/* Transiciones suaves para el cambio de tema */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+} 
