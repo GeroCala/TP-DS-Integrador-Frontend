@@ -4,6 +4,7 @@
   align-items: center;
   min-height: 100vh;
   transition: background-color 0.3s ease;
+  padding: 1rem;
 }
 
 .login-box {
@@ -87,4 +88,111 @@
   margin-bottom: 15px;
   text-align: center;
   border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+/* Media Queries para Responsive Design */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 0.5rem;
+  }
+
+  .login-box {
+    padding: 1.5rem;
+    max-width: 100%;
+    margin: 0 1rem;
+  }
+
+  .login-box h2 {
+    font-size: 1.5rem;
+  }
+
+  .form-group input {
+    padding: 0.875rem;
+    font-size: 16px; /* Previene zoom en iOS */
+  }
+
+  .login-button {
+    padding: 0.875rem;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 0.25rem;
+  }
+
+  .login-box {
+    padding: 1rem;
+    margin: 0 0.5rem;
+  }
+
+  .login-box h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .login-form {
+    gap: 1rem;
+  }
+
+  .form-group {
+    gap: 0.25rem;
+  }
+
+  .form-group label {
+    font-size: 0.85rem;
+  }
+
+  .form-group input {
+    padding: 0.75rem;
+    font-size: 16px;
+  }
+
+  .login-button {
+    padding: 0.75rem;
+    font-size: 16px;
+  }
+
+  .error-message {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .login-box {
+    padding: 2.5rem;
+    max-width: 450px;
+  }
+
+  .login-box h2 {
+    font-size: 2rem;
+  }
+
+  .form-group input {
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .login-button {
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Orientación landscape en móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+  .login-container {
+    min-height: auto;
+    padding: 1rem 0;
+  }
+
+  .login-box {
+    padding: 1rem;
+  }
+
+  .login-form {
+    gap: 1rem;
+  }
 }
