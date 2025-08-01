@@ -23,7 +23,7 @@ function EstudiantePage() {
     setError('');
     
     try {
-      const response = await fetch('http://localhost:3000/alumnos');
+      const response = await fetch('https://tp-ds-integrador-backend.onrender.com/alumnos');
       const alumnos = await response.json();
       
       const alumno = alumnos.find(

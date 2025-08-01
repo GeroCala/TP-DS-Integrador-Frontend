@@ -23,7 +23,7 @@ function EmpresaPage() {
     setError('');
     
     try {
-      const response = await fetch('http://localhost:3000/empresas');
+      const response = await fetch('https://tp-ds-integrador-backend.onrender.com/empresas');
       const empresas = await response.json();
       
       const empresa = empresas.find(

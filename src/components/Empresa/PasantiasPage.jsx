@@ -29,7 +29,7 @@ function PasantiasPage() {
       const empresaId = sessionStorage.getItem('empresaId');
       console.log('Cargando pasantías para empresa ID:', empresaId);
 
-      const response = await fetch('http://localhost:3000/pasantias');
+      const response = await fetch('https://tp-ds-integrador-backend.onrender.com/pasantias');
       if (!response.ok) {
         throw new Error(`Error HTTP: ${response.status}`);
       }

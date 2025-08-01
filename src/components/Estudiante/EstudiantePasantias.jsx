@@ -25,7 +25,7 @@ function EstudiantePasantias() {
   const cargarPasantias = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:3000/pasantias');
+      const response = await fetch('https://tp-ds-integrador-backend.onrender.com/pasantias');
       if (!response.ok) {
         throw new Error(`Error HTTP: ${response.status}`);
       }
@@ -41,7 +41,7 @@ function EstudiantePasantias() {
       const pasantiasConEmpresa = await Promise.all(data.map(async (pasantia) => {
         if (!pasantia.empresa_nombre && pasantia.empresa_id) {
           try {
-            const empresaResponse = await fetch(`http://localhost:3000/empresas/${pasantia.empresa_id}`);
+            const empresaResponse = await fetch(`https://tp-ds-integrador-backend.onrender.com/empresas/${pasantia.empresa_id}`);
             if (empresaResponse.ok) {
               const empresa = await empresaResponse.json();
               return { ...pasantia, empresa_nombre: empresa.nombre };
